@@ -1,0 +1,9 @@
+name: DropXP
+main: com.github.boltydawg.dropxp.Main
+version: 1.0
+author: BoltyDawg
+description: Store and trade your XP!
+commands:
+  dropxp:
+    description: Stores your xp in a bottle
+    usage: /dropxp
