@@ -31,6 +31,9 @@ public class ThiccListener implements Listener{
 					PotionMeta pot = (PotionMeta)event.getItem().getItemMeta();
 					if(pot.getBasePotionData().getType().equals(PotionType.THICK)) {
 						Player player = event.getPlayer();
+						if(!player.hasPermission("dropxp.drop")) {
+							return;
+						}
 						int xp = Experience.getExp(player)-7;
 						if(xp>0) {
 							ItemStack bottle = new ItemStack(Material.POTION);
@@ -66,6 +69,11 @@ public class ThiccListener implements Listener{
 			List<String> lore = event.getItem().getItemMeta().getLore();
 			if(lore!=null && lore.size()==1 && lore.get(0).contains(" orbs")) {
 				Player player = event.getPlayer();
+				if(!player.hasPermission("dropxp.drink")) {
+					player.sendMessage(ChatColor.RED+"You do not have permission to drink this potion");
+					event.setCancelled(true);
+					return;
+				}
 				if(!Main.config.getBoolean("requireThickPotion")) {
 					event.setCancelled(true);
 					player.getInventory().removeItem(event.getItem());
