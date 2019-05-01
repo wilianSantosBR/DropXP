@@ -3,6 +3,7 @@ package com.github.boltydawg.dropxp;
 import org.bukkit.ChatColor;
 import org.bukkit.Color;
 import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -23,7 +24,7 @@ public class CommandDropXP implements CommandExecutor {
 		}
 		else {
 			if(player.getInventory().firstEmpty()==-1) {
-				player.sendMessage("You're inventory is full!");
+				player.sendMessage("Your inventory is full!");
 				return true;
 			}
 			int xp = Experience.getExp(player)-7;
@@ -39,9 +40,10 @@ public class CommandDropXP implements CommandExecutor {
 				bottle.setItemMeta(met);
 				player.getInventory().addItem(bottle);
 				Experience.changeExp(player, -xp);
+				player.playSound(player.getLocation(), Sound.ENTITY_EVOKER_CAST_SPELL, 0.5f, 1.5f);
 				return true;
 			}
-			player.sendMessage("You need at least over 1 level of xp");
+			player.sendMessage("You need over 1 level of xp!");
 			return true;
 		}
 	}

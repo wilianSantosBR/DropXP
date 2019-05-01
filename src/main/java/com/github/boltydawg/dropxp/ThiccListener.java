@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.bukkit.Color;
 import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -23,7 +24,7 @@ import net.md_5.bungee.api.chat.TextComponent;
 
 public class ThiccListener implements Listener{
 	@EventHandler
-	public void playerInteractEven(PlayerInteractEvent event) {
+	public void playerInteractEvent(PlayerInteractEvent event) {
 		if(Main.config.getBoolean("requireThickPotion")) {
 			if(event.getAction().equals(Action.RIGHT_CLICK_AIR) || event.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
 				if(event.getItem().getType().equals(Material.POTION)) {
@@ -47,10 +48,11 @@ public class ThiccListener implements Listener{
 							else
 								player.getInventory().setItemInOffHand(bottle);
 							event.setCancelled(true);
+							player.playSound(player.getLocation(), Sound.ENTITY_EVOKER_CAST_SPELL, 0.5f, 1.5f);
 							return;
 						}
 						TextComponent msg = new TextComponent();
-						msg.setText("You need at least 1 level of xp");
+						msg.setText("You need over 1 level of xp!");
 						msg.setColor(ChatColor.RED);
 						player.spigot().sendMessage(ChatMessageType.ACTION_BAR,msg);
 					}
@@ -70,6 +72,7 @@ public class ThiccListener implements Listener{
 				}
 				String xp = ChatColor.stripColor(lore.get(0));
 				Experience.changeExp(player, Integer.parseInt(xp.substring(0, xp.indexOf(' '))));
+				player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 0.5f, 1.5f);
 			}
 		}
 	}
