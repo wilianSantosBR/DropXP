@@ -27,7 +27,7 @@ public class ThiccListener implements Listener{
 	public void playerInteractEvent(PlayerInteractEvent event) {
 		if(Main.config.getBoolean("requireThickPotion")) {
 			if(event.getAction().equals(Action.RIGHT_CLICK_AIR) || event.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
-				if(event.getItem().getType().equals(Material.POTION)) {
+				if(event.getItem()!=null && event.getItem().getType().equals(Material.POTION)) {
 					PotionMeta pot = (PotionMeta)event.getItem().getItemMeta();
 					if(pot.getBasePotionData().getType().equals(PotionType.THICK)) {
 						Player player = event.getPlayer();
