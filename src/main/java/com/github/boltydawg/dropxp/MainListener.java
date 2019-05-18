@@ -16,7 +16,12 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.PotionMeta;
 
 import net.md_5.bungee.api.ChatColor;
-
+/**
+ * This listener handles all events that are independent of
+ * the user's configuration
+ * @author Jason
+ *
+ */
 public class MainListener implements Listener {
 	@EventHandler
 	public void drinkPotion(PlayerItemConsumeEvent event) {

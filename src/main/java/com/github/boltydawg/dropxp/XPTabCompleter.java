@@ -10,9 +10,9 @@ import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
 import org.bukkit.util.StringUtil;
 /**
- * Tab Completer that adds in in a tab completion
- * for the admin sub command if the player has
- * permission to use said command
+ * This class adds an auto-suggested tab completion
+ * for if someone has permission to use the leveled bottle
+ * functionality
  * @author BoltyDawg
  *
  */
@@ -21,9 +21,9 @@ public class XPTabCompleter implements TabCompleter{
 	public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
 		if(sender instanceof Player) {
 			Player player = (Player)sender;
-			if(args != null && args.length == 1 && player.hasPermission("dropxp.admin")) {
+			if(args != null && args.length == 1 && player.hasPermission("dropxp.leveled")) {
 				List<String> commands = new ArrayList<>();
-				commands.add("admin");
+				commands.add("level");
 				List<String> completions = new ArrayList<>();
 				StringUtil.copyPartialMatches(args[0], commands, completions);
 				Collections.sort(completions);

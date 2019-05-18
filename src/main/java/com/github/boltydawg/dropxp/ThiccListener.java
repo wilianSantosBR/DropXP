@@ -28,7 +28,10 @@ import net.md_5.bungee.api.chat.TextComponent;
  *
  */
 public class ThiccListener implements Listener{
-	//private NamespacedKey nameKey = new NamespacedKey(Main.instance,"dropxp");
+	/**
+	 * Runs when a player right or left clicks, but I'm only interested in when they right click while holding a thick potion
+	 * @param event
+	 */
 	@EventHandler
 	public void playerInteractEvent(PlayerInteractEvent event) {
 		if(event.getAction().equals(Action.RIGHT_CLICK_AIR) || event.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
@@ -59,11 +62,21 @@ public class ThiccListener implements Listener{
 			}
 		}
 	}
+	/**
+	 * Whenever a thick potion is brewed, it will be replaced with an empty xp potion
+	 * @param event
+	 */
 	@EventHandler
 	public void brewEvent(BrewEvent event) {
 		if(event.getContents().getIngredient().getType().equals(Material.GLOWSTONE_DUST)) {
 			BrewerInventory bi = event.getContents();
-			//I have to use a runner here so that I can modify the new potions produced in the brewing stand rather than the original ingredients
+			
+			/**
+			 * I have to use a runner here so that I can modify the new potions produced in the brewing stand rather than the original ingredients
+			 * It's a bit finicky but I couldn't think of any other way around it, the API doesn't have any methods for doing this
+			 * This BukkitRunnable runs the code 1 tick after the event is triggered, that way the BrewerInventory updates
+			 */
+			
 			new BukkitRunnable() {
 				@Override
 				public void run() {
