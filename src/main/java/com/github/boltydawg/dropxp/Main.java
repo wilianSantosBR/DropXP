@@ -20,15 +20,18 @@ public class Main extends JavaPlugin{
 	public void onEnable() {
 		instance = this;
 		
-		this.getCommand("dropxp").setExecutor(new CommandDropXP());
-		getServer().getPluginManager().registerEvents(new ThiccListener(), this);
-		
 		config = this.getConfig();
 		config.addDefault("requireThickPotion", false);
 		config.options().copyDefaults(true);
 		saveConfig();
 		
 		thicc = config.getBoolean("requireThickPotion");
+		
+		this.getCommand("dropxp").setTabCompleter(new XPTabCompleter());
+		this.getCommand("dropxp").setExecutor(new CommandDropXP());
+		if(thicc)
+			getServer().getPluginManager().registerEvents(new ThiccListener(), this);
+		getServer().getPluginManager().registerEvents(new MainListener(), this);
 	}
 	@Override
 	public void onDisable() {
