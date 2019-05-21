@@ -47,7 +47,10 @@ public class MainListener implements Listener {
 					player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 0.5f, 1.5f);
 					if(!Main.thicc) {
 						event.setCancelled(true);
-						player.getInventory().removeItem(event.getItem());
+						if(player.getInventory().getItemInMainHand().equals(event.getItem()))
+							player.getInventory().setItemInMainHand(new ItemStack(Material.AIR));
+						else
+							player.getInventory().setItemInOffHand(new ItemStack(Material.AIR));
 					}
 				}
 				else if(lore.get(0).contains(" levels")) {
