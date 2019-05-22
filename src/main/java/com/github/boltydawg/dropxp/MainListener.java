@@ -23,6 +23,7 @@ import net.md_5.bungee.api.ChatColor;
  *
  */
 public class MainListener implements Listener {
+	
 	@EventHandler
 	public void drinkPotion(PlayerItemConsumeEvent event) {
 		if(event.getItem().getType().equals(Material.POTION)) {
@@ -82,7 +83,7 @@ public class MainListener implements Listener {
 			}
 		}
 	}
-	public static ItemStack makeBottle(int xp, String name) {
+	public static ItemStack makeBottle(int xp) {
 		ItemStack bottle = new ItemStack(Material.POTION);
 		PotionMeta met = (PotionMeta)bottle.getItemMeta();
 		//met.getPersistentDataContainer().set(nameKey, PersistentDataType.STRING, "xp");
@@ -92,7 +93,7 @@ public class MainListener implements Listener {
 		lore.add(ChatColor.GRAY.toString() + "0-"+ df.format(Experience.getLevelFromExp((xp))));
 		met.setLore(lore);
 		met.setColor(Color.fromRGB(0,208,35));
-		met.setDisplayName(ChatColor.GREEN+name+ChatColor.GREEN+"'s XP");
+		met.setDisplayName(ChatColor.GREEN+ "Bottle o' XP");
 		met.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
 		bottle.setItemMeta(met);
 		return bottle;
@@ -102,10 +103,10 @@ public class MainListener implements Listener {
 		PotionMeta met = (PotionMeta)bottle.getItemMeta();
 		//met.getPersistentDataContainer().set(nameKey, PersistentDataType.STRING, "xp");
 		ArrayList<String> lore = new ArrayList<String>(1);
-		lore.add(ChatColor.YELLOW.toString()+xp+ChatColor.YELLOW+" levels");
+		lore.add(ChatColor.LIGHT_PURPLE + (xp + " levels"));
 		met.setLore(lore);
-		met.setColor(Color.fromRGB(0,208,35));
-		met.setDisplayName(ChatColor.GREEN+"Leveled XP Bottle");
+		met.setColor(Color.AQUA);
+		met.setDisplayName(ChatColor.DARK_AQUA.toString() + ChatColor.ITALIC +"Bottle o' Levels");
 		met.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
 		bottle.setItemMeta(met);
 		return bottle;

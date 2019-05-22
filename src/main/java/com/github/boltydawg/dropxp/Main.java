@@ -10,7 +10,7 @@ import org.bukkit.plugin.java.JavaPlugin;
  * @author BoltyDawg
  */
 
-//TODO colorize xp potions based off of how many orbs they have
+//TODO colorize xp potions based off of how many orbs they have?
 
 public class Main extends JavaPlugin{
 	public static FileConfiguration config;
@@ -27,8 +27,9 @@ public class Main extends JavaPlugin{
 		
 		thicc = config.getBoolean("requireThickPotion");
 		
-		this.getCommand("dropxp").setTabCompleter(new XPTabCompleter());
 		this.getCommand("dropxp").setExecutor(new CommandDropXP());
+		this.getCommand("droplvl").setExecutor(new CommandLevelBottle());
+
 		if(thicc)
 			getServer().getPluginManager().registerEvents(new ThiccListener(), this);
 		getServer().getPluginManager().registerEvents(new MainListener(), this);

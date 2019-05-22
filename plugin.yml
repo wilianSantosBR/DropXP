@@ -1,13 +1,17 @@
 name: DropXP
 main: com.github.boltydawg.dropxp.Main
-version: 1.3.0b
+version: 1.3.0
 author: BoltyDawg
 description: Store and trade your XP!
 commands:
   dropxp:
     description: Stores your xp in a bottle
-    usage: /dropxp [<number of levels>]
+    usage: /dropxp <number of raw levels>
     permission: dropxp.drop
+  droplvl:
+     description: Creates a leveled xp bottle
+     usage: /droplvl <number of levels>
+     permission: dropxp.lvl
 permissions:
    dropxp.*:
       description: Gives access to all dropxp functionality
@@ -23,4 +27,7 @@ permissions:
       default: true
    dropxp.specify:
       description: Allows you to drop a specific amount of xp
+      default: op
+   dropxp.lvl:
+      description: Allows you to generate a potion based off levels rather than orbs
       default: op

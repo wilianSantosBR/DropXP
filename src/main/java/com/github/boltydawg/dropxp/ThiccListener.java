@@ -45,7 +45,7 @@ public class ThiccListener implements Listener{
 					int xp = Experience.getExp(player);
 					if(xp>0) {
 						Experience.changeExp(player, -xp);
-						ItemStack bottle = MainListener.makeBottle(xp,player.getDisplayName());
+						ItemStack bottle = MainListener.makeBottle(xp);
 						if(event.getHand().equals(EquipmentSlot.HAND))
 							player.getInventory().setItemInMainHand(bottle);
 						else
