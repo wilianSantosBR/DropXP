@@ -15,7 +15,7 @@ import org.bukkit.entity.Player;
 public class CommandDropXP implements CommandExecutor {
 	/**
 	 * This method fires everytime someone uses the /dropxp command.
-	 * Deals with 2 different possible arguments, no arguments or a numer specifying how much xp to drop
+	 * Deals with 2 different possible arguments, no arguments or an int specifying how much xp to drop
 	 */
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {

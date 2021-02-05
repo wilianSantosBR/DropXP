@@ -7,8 +7,13 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+/**
+ * handles the execution of the /droplvl command, which is used to give admins
+ * xp bottles based off of levels rather than actual xp
+ * @author Jason
+ *
+ */
 public class CommandLevelBottle implements CommandExecutor{
-
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		
