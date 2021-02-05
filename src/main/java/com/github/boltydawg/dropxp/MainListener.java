@@ -86,14 +86,23 @@ public class MainListener implements Listener {
 	public static ItemStack makeBottle(int xp) {
 		ItemStack bottle = new ItemStack(Material.POTION);
 		PotionMeta met = (PotionMeta)bottle.getItemMeta();
-		//met.getPersistentDataContainer().set(nameKey, PersistentDataType.STRING, "xp");
 		ArrayList<String> lore = new ArrayList<String>(2);
 		lore.add(ChatColor.YELLOW.toString()+xp+ChatColor.YELLOW+" orbs");
 		DecimalFormat df = new DecimalFormat("0.0");
 		lore.add(ChatColor.GRAY.toString() + "0-"+ df.format(Experience.getLevelFromExp((xp))));
 		met.setLore(lore);
-		met.setColor(Color.fromRGB(0,208,35));
-		met.setDisplayName(ChatColor.GREEN+ "Bottle o' XP");
+		if(xp < 550) {
+			met.setColor(Color.fromRGB(0,208,35));
+			met.setDisplayName(ChatColor.GREEN+ "Bottle o' XP");
+		}
+		else if (xp < 1395) {
+			met.setColor(Color.fromRGB(166,0,208));
+			met.setDisplayName(ChatColor.DARK_PURPLE+ "Bottle o' XP");
+		}
+		else {
+			met.setColor(Color.fromRGB(208, 0, 59));
+			met.setDisplayName(ChatColor.DARK_RED+ "Bottle o' XP");
+		}
 		met.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
 		bottle.setItemMeta(met);
 		return bottle;
