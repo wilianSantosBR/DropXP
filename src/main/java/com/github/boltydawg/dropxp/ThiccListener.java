@@ -69,7 +69,7 @@ public class ThiccListener implements Listener{
 	@EventHandler
 	public void brewEvent(BrewEvent event) {
 		if(event.getContents().getIngredient().getType().equals(Material.GLOWSTONE_DUST)) {
-			BrewerInventory bi = event.getContents();
+			final BrewerInventory bi = event.getContents();
 			
 			/**
 			 * I have to use a runner here so that I can modify the new potions produced in the brewing stand rather than the original ingredients
