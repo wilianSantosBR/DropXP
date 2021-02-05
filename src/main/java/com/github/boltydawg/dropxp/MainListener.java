@@ -92,15 +92,19 @@ public class MainListener implements Listener {
 		lore.add(ChatColor.GRAY.toString() + "0-"+ df.format(Experience.getLevelFromExp((xp))));
 		met.setLore(lore);
 		if(xp < 550) {
-			met.setColor(Color.fromRGB(0,208,35));
-			met.setDisplayName(ChatColor.GREEN+ "Bottle o' XP");
+			met.setColor(Color.fromRGB(92, 198, 255));
+			met.setDisplayName(ChatColor.BLUE+ "Bottle o' XP");
 		}
 		else if (xp < 1395) {
-			met.setColor(Color.fromRGB(166,0,208));
+			met.setColor(Color.fromRGB(109,255,43));
+			met.setDisplayName(ChatColor.GREEN+ "Bottle o' XP");
+		}
+		else if (xp < 2920) {
+			met.setColor(Color.fromRGB(194,0,180));
 			met.setDisplayName(ChatColor.DARK_PURPLE+ "Bottle o' XP");
 		}
 		else {
-			met.setColor(Color.fromRGB(208, 0, 59));
+			met.setColor(Color.fromRGB(140, 0, 0));
 			met.setDisplayName(ChatColor.DARK_RED+ "Bottle o' XP");
 		}
 		met.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
