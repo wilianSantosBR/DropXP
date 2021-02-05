@@ -10,8 +10,6 @@ import org.bukkit.plugin.java.JavaPlugin;
  * @author BoltyDawg
  */
 
-//TODO colorize xp potions based off of how many orbs they have?
-
 public class Main extends JavaPlugin{
 	public static FileConfiguration config;
 	public static Plugin instance;
