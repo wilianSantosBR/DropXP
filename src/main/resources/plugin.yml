@@ -1,34 +1,34 @@
 name: DropXP
-main: com.github.boltydawg.dropxp.Main
+main: com.github.wiliansantosbr.dropxp.Main
 version: 1.3.1
 api-version: 1.20
-author: BoltyDawg
-description: Store and trade your XP!
+author: wiliansantosbr
+description: Armazene e troque seu XP!
 commands:
   dropxp:
-    description: Stores your xp in a bottle
-    usage: /dropxp <number of raw levels>
+    description: Armazena seu XP em uma garrafa
+    usage: /dropxp <número de níveis brutos>
     permission: dropxp.drop
   droplvl:
-     description: Creates a leveled xp bottle
-     usage: /droplvl <number of levels>
+     description: Cria uma garrafa de XP nivelada
+     usage: /droplvl <número de níveis>
      permission: dropxp.lvl
 permissions:
    dropxp.*:
-      description: Gives access to all dropxp functionality
+      description: Dá acesso a todas as funcionalidades do dropxp
       children:
          dropxp.drop: true
          dropxp.drink: true
          dropxp.specify: true
    dropxp.drop:
-      description: Allows you to store your xp
+      description: Permite que você armazene seu XP
       default: true
    dropxp.drink:
-      description: Allows you to drink xp potions
+      description: Permite que você beba poções de XP
       default: true
    dropxp.specify:
-      description: Allows you to drop a specific amount of xp
+      description: Permite que você perca uma quantidade específica de XP
       default: op
    dropxp.lvl:
-      description: Allows you to generate a potion based off levels rather than orbs
+      description: Permite que você perca uma quantidade específica de XP
       default: op

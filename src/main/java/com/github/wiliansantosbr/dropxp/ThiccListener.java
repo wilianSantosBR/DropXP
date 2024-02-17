@@ -1,4 +1,4 @@
-package com.github.boltydawg.dropxp;
+package com.github.wiliansantosbr.dropxp;
 
 import org.bukkit.Color;
 import org.bukkit.Material;
@@ -55,7 +55,7 @@ public class ThiccListener implements Listener{
 						return;
 					}
 					TextComponent msg = new TextComponent();
-					msg.setText("You need some xp!");
+					msg.setText("Você precisa de algum XP!");
 					msg.setColor(ChatColor.RED);
 					player.spigot().sendMessage(ChatMessageType.ACTION_BAR,msg);
 				}
@@ -85,7 +85,7 @@ public class ThiccListener implements Listener{
 						if(pot.getType().equals(Material.POTION)) {
 							PotionMeta met = (PotionMeta)pot.getItemMeta();
 							if(met.getBasePotionData().getType().equals(PotionType.THICK)) {
-								met.setDisplayName(ChatColor.YELLOW + "Empty XP Potion");
+								met.setDisplayName(ChatColor.YELLOW + "Poção XP vazia");
 								met.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
 								met.setColor(Color.fromRGB(255,250,171));
 								pot.setItemMeta(met);

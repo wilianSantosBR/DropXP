@@ -1,4 +1,4 @@
-package com.github.boltydawg.dropxp;
+package com.github.wiliansantosbr.dropxp;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
