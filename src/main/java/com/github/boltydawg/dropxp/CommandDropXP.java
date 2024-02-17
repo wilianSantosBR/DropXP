@@ -25,13 +25,13 @@ public class CommandDropXP implements CommandExecutor {
 		
 		//This command only gives instructions if requireThickPotion is set to true in the config
 		if(Main.thicc) {
-			player.sendMessage(ChatColor.DARK_AQUA + "[DropXP] " + ChatColor.YELLOW + "Right click while holding a thick potion to store your xp inside of it!");
+			player.sendMessage(ChatColor.DARK_AQUA + "[DropXP] " + ChatColor.YELLOW + "Clique com o botão direito enquanto segura uma poção grossa para armazenar seu XP dentro dela!");
 			return true;
 		}
 		
 		//checks if someone's inventory is full
 		else if(player.getInventory().firstEmpty() == -1) {
-			player.sendMessage(ChatColor.DARK_AQUA + "[DropXP] " + ChatColor.BLUE + "Your inventory is full!");
+			player.sendMessage(ChatColor.DARK_AQUA + "[DropXP] " + ChatColor.BLUE + "Seu inventário está cheio!");
 			return true;
 		}
 		
@@ -42,7 +42,7 @@ public class CommandDropXP implements CommandExecutor {
 				xpHelper(player, xp);
 			}
 			else {
-				player.sendMessage(ChatColor.DARK_AQUA + "[DropXP] "+ ChatColor.BLUE + "You need some xp!");
+				player.sendMessage(ChatColor.DARK_AQUA + "[DropXP] "+ ChatColor.BLUE + "Você precisa de algum XP!");
 			}
 			return true;
 		}
@@ -50,7 +50,7 @@ public class CommandDropXP implements CommandExecutor {
 		//checks if the player entered a number after /dropxp
 		else if(args.length == 1) {
 			if(!player.hasPermission("dropxp.specify")) {
-				player.sendMessage(ChatColor.DARK_AQUA + "[DropXP] "+ ChatColor.RED + "You don't have permission to drop set amounts of xp");
+				player.sendMessage(ChatColor.DARK_AQUA + "[DropXP] "+ ChatColor.RED + "Você não tem permissão para descartar quantidades definidas de XP");
 				return true;
 			}
 			int xp;
@@ -58,18 +58,18 @@ public class CommandDropXP implements CommandExecutor {
 				xp = Experience.getExpFromLevel(Integer.parseInt(args[0]));
 			}
 			catch(NumberFormatException e) {
-				player.sendMessage(ChatColor.DARK_AQUA + "[DropXP] "+ ChatColor.RED + "Invalid Number");
+				player.sendMessage(ChatColor.DARK_AQUA + "[DropXP] "+ ChatColor.RED + "Número inválido");
 				return true;
 			}
 			int playerxp = Experience.getExp(player);
 			if(playerxp<xp) {
-				player.sendMessage(ChatColor.DARK_AQUA + "[DropXP] "+ ChatColor.RED + "You overestimate your power...");
+				player.sendMessage(ChatColor.DARK_AQUA + "[DropXP] "+ ChatColor.RED + "Você superestima seu poder...");
 		}
 			else if(xp>0) {
 				xpHelper(player, xp);
 			}
 			else {
-				player.sendMessage(ChatColor.DARK_AQUA + "[DropXP] "+ ChatColor.RED + "You can't drop 0 or less xp");
+				player.sendMessage(ChatColor.DARK_AQUA + "[DropXP] "+ ChatColor.RED + "Você não pode perder 0 ou menos XP");
 			}
 			return true;
 		}

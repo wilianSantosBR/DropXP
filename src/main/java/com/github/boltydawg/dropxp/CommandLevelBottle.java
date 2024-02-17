@@ -22,7 +22,7 @@ public class CommandLevelBottle implements CommandExecutor{
 		
 		//checks if their inventory is full
 		if(player.getInventory().firstEmpty() == -1) {
-			player.sendMessage(ChatColor.DARK_AQUA + "[DropXP] " + ChatColor.BLUE + "Your inventory is full!");
+			player.sendMessage(ChatColor.DARK_AQUA + "[DropXP] " + ChatColor.BLUE + "Seu inventário está cheio!");
 			return true;
 		}
 		
@@ -36,7 +36,7 @@ public class CommandLevelBottle implements CommandExecutor{
 				player.playSound(player.getLocation(), Sound.ENTITY_EVOKER_CAST_SPELL, 0.5f, 1.65f);
 			}
 			catch(NumberFormatException e) {
-				player.sendMessage(ChatColor.DARK_AQUA + "[DropXP] "+ ChatColor.RED + "Invalid Number");
+				player.sendMessage(ChatColor.DARK_AQUA + "[DropXP] "+ ChatColor.RED + "Número inválido");
 			}
 			return true;
 		}

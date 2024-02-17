@@ -40,7 +40,7 @@ public class MainListener implements Listener {
 						return;
 					}
 					if(!player.hasPermission("dropxp.drink")) {
-						player.sendMessage(ChatColor.DARK_AQUA + "[DropXP] " + ChatColor.RED+ "You do not have permission to drink this potion");
+						player.sendMessage(ChatColor.DARK_AQUA + "[DropXP] " + ChatColor.RED+ "Você não tem permissão para beber esta poção");
 						event.setCancelled(true);
 						return;
 					}
@@ -65,7 +65,7 @@ public class MainListener implements Listener {
 						return;
 					}
 					if(!player.hasPermission("dropxp.drink")) {
-						player.sendMessage(ChatColor.DARK_AQUA + "[DropXP] " + ChatColor.RED + "You do not have permission to drink this potion");
+						player.sendMessage(ChatColor.DARK_AQUA + "[DropXP] " + ChatColor.RED + "Você não tem permissão para beber esta poção");
 						event.setCancelled(true);
 						return;
 					}
