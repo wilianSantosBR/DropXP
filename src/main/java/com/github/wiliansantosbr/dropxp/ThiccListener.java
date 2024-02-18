@@ -70,13 +70,13 @@ public class ThiccListener implements Listener{
 	public void brewEvent(BrewEvent event) {
 		if(event.getContents().getIngredient().getType().equals(Material.GLOWSTONE_DUST)) {
 			final BrewerInventory bi = event.getContents();
-			
+
 			/**
 			 * I have to use a runner here so that I can modify the new potions produced in the brewing stand rather than the original ingredients
 			 * It's a bit finicky but I couldn't think of any other way around it, the API doesn't have any methods for doing this
 			 * This BukkitRunnable runs the code 1 tick after the event is triggered, that way the BrewerInventory updates
 			 */
-			
+
 			new BukkitRunnable() {
 				@Override
 				public void run() {

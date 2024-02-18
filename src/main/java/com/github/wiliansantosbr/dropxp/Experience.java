@@ -4,7 +4,7 @@ import org.bukkit.entity.Player;
 
 /**
  * A utility for managing Player experience properly.
- * 
+ *
  * @author Jikoo
  */
 public class Experience {
@@ -12,9 +12,9 @@ public class Experience {
 	/**
 	 * Calculates a player's total exp based on level and progress to next.
 	 * @see http://minecraft.gamepedia.com/Experience#Leveling_up
-	 * 
+	 *
 	 * @param player the Player
-	 * 
+	 *
 	 * @return the amount of exp the Player has
 	 */
 	public static int getExp(Player player) {
@@ -24,17 +24,17 @@ public class Experience {
 
 	/**
 	 * Calculates total experience based on level.
-	 * 
+	 *
 	 * @see http://minecraft.gamepedia.com/Experience#Leveling_up
-	 * 
+	 *
 	 * "One can determine how much experience has been collected to reach a level using the equations:
-	 * 
+	 *
 	 *  Total Experience = [Level]2 + 6[Level] (at levels 0-15)
 	 *                     2.5[Level]2 - 40.5[Level] + 360 (at levels 16-30)
 	 *                     4.5[Level]2 - 162.5[Level] + 2220 (at level 31+)"
-	 * 
+	 *
 	 * @param level the level
-	 * 
+	 *
 	 * @return the total experience calculated
 	 */
 	public static int getExpFromLevel(int level) {
@@ -49,9 +49,9 @@ public class Experience {
 
 	/**
 	 * Calculates level based on total experience.
-	 * 
+	 *
 	 * @param exp the total experience
-	 * 
+	 *
 	 * @return the level calculated
 	 */
 	public static double getLevelFromExp(long exp) {
@@ -69,7 +69,7 @@ public class Experience {
 
 	/**
 	 * @see http://minecraft.gamepedia.com/Experience#Leveling_up
-	 * 
+	 *
 	 * "The formulas for figuring out how many experience orbs you need to get to the next level are as follows:
 	 *  Experience Required = 2[Current Level] + 7 (at levels 0-15)
 	 *                        5[Current Level] - 38 (at levels 16-30)
@@ -90,7 +90,7 @@ public class Experience {
 	 * <p>
 	 * This method should be used in place of {@link Player#giveExp(int)}, which does not properly
 	 * account for different levels requiring different amounts of experience.
-	 * 
+	 *
 	 * @param player the Player affected
 	 * @param exp the amount of experience to add or remove
 	 */

@@ -6,7 +6,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 /**
  * A plugin that allows you to drop and trade your hard-earned xp
- * 
+ *
  * @author BoltyDawg
  */
 
@@ -17,14 +17,14 @@ public class Main extends JavaPlugin{
 	@Override
 	public void onEnable() {
 		instance = this;
-		
+
 		config = this.getConfig();
 		config.addDefault("requireThickPotion", false);
 		config.options().copyDefaults(true);
 		saveConfig();
-		
+
 		thicc = config.getBoolean("requireThickPotion");
-		
+
 		this.getCommand("dropxp").setExecutor(new CommandDropXP());
 		this.getCommand("droplvl").setExecutor(new CommandLevelBottle());
 
@@ -34,6 +34,6 @@ public class Main extends JavaPlugin{
 	}
 	@Override
 	public void onDisable() {
-		
+
 	}
 }

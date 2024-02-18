@@ -19,22 +19,22 @@ public class CommandDropXP implements CommandExecutor {
 	 */
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-		
+
 		if(!(sender instanceof Player)) return false;
 		Player player = ((Player) sender);
-		
+
 		//This command only gives instructions if requireThickPotion is set to true in the config
 		if(Main.thicc) {
 			player.sendMessage(ChatColor.DARK_AQUA + "[DropXP] " + ChatColor.YELLOW + "Clique com o botão direito enquanto segura uma poção grossa para armazenar seu XP dentro dela!");
 			return true;
 		}
-		
+
 		//checks if someone's inventory is full
 		else if(player.getInventory().firstEmpty() == -1) {
 			player.sendMessage(ChatColor.DARK_AQUA + "[DropXP] " + ChatColor.BLUE + "Seu inventário está cheio!");
 			return true;
 		}
-		
+
 		//checks if the player didn't enter any arguments following /dropxp
 		else if(args == null || args.length == 0){
 			int xp = Experience.getExp(player);
@@ -46,7 +46,7 @@ public class CommandDropXP implements CommandExecutor {
 			}
 			return true;
 		}
-		
+
 		//checks if the player entered a number after /dropxp
 		else if(args.length == 1) {
 			if(!player.hasPermission("dropxp.specify")) {

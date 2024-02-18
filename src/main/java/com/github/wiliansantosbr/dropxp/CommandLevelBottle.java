@@ -16,16 +16,16 @@ import org.bukkit.entity.Player;
 public class CommandLevelBottle implements CommandExecutor{
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-		
+
 		if(!(sender instanceof Player)) return false;
 		Player player = (Player)sender;
-		
+
 		//checks if their inventory is full
 		if(player.getInventory().firstEmpty() == -1) {
 			player.sendMessage(ChatColor.DARK_AQUA + "[DropXP] " + ChatColor.BLUE + "Seu inventário está cheio!");
 			return true;
 		}
-		
+
 		//checks if they've entered their arguments correctly
 		else if(args != null && args.length == 1) {
 			int xp;
@@ -40,11 +40,11 @@ public class CommandLevelBottle implements CommandExecutor{
 			}
 			return true;
 		}
-		
+
 		//returns false if they don't enter their arguments correctly
 		else {
 			return false;
 		}
 	}
-	
+
 }
